@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<title>Students Exams List Generator</title>
+</head>
+
+<body>
+	<h3>List students</h3>
+	<h:form rendered="#{not empty studentViewManagedBean.list}">
+		<h:dataTable border="1" value="#{studentViewManagedBean.list}" var="student">
+			<h:column><f:facet name="header">ID</f:facet>#{student.studentId}</h:column>
+			<h:column><f:facet name="header">First Name</f:facet>#{student.studentFirstName}</h:column>
+			<h:column><f:facet name="header">Last Name</f:facet>#{student.studentLastName}</h:column>
+			<h:column><f:facet name="header">Assignment Marks</f:facet>#{student.assignmentMarks}</h:column>
+			<h:column><f:facet name="header">Exams Marks</f:facet>#{student.examsMarks}</h:column>
+			<h:column><f:facet name="header">Total Marks</f:facet>#{student.totalMarks}</h:column>
+			<h:column><f:facet name="header">Grade</f:facet>#{student.grade}</h:column>
+		</h:dataTable>
+	</h:form>
+
+	<h:panelGroup rendered="#{empty studentViewManagedBean.list}">
+		<p>No students! Please use the refresh button</p>
+	</h:panelGroup>
+	<h:form>
+		<h:commandButton value="Refresh" action="#{studentViewManagedBean.refreshStudentLists}" />
+	</h:form>
+	
+</body>
+</html>
