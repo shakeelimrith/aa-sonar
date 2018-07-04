@@ -7,33 +7,212 @@
 	<groupId>com.accenture.academy.buildandunittest.assignment</groupId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	
-	
-          
+
+   <dependencies>
+
+              <dependency>
+
+                     <groupId>com.sun.faces</groupId>
+
+                     <artifactId>jsf-api</artifactId>
+
+                     <version>2.1.7</version>
+
+              </dependency>
+
+              <dependency>
+
+                     <groupId>com.sun.faces</groupId>
+
+                     <artifactId>jsf-impl</artifactId>
+
+                     <version>2.1.7</version>
+
+              </dependency>
+
+              <dependency>
+
+                     <groupId>junit</groupId>
+
+                     <artifactId>junit</artifactId>
+
+                     <version>4.12</version>
+
+                     <scope>test</scope>
+
+              </dependency>
+
+              <dependency>
+
+                     <groupId>org.apache.tomcat</groupId>
+
+                     <artifactId>tomcat-servlet-api</artifactId>
+
+                     <version>7.0.55</version>
+
+              </dependency>
+
+              <dependency>
+
+                     <groupId>javax.validation</groupId>
+
+                     <artifactId>validation-api</artifactId>
+
+                     <version>1.1.0.Final</version>
+
+              </dependency>
+
+              <dependency>
+
+                     <groupId>com.accenture.academy.buildandunittest.assignment</groupId>
+
+                     <artifactId>StudentCommons</artifactId>
+
+                     <version>1.0.0</version>
+
+              </dependency>
+
+       </dependencies>
+
+         
+
  
+
       
+
     <build>
+
         <finalName>${project.artifactId}</finalName>
+
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-                </configuration>
-            </plugin>
-                      
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                <warSourceDirectory>WebContent</warSourceDirectory>
-                <failOnMissingWebXml>true</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-        </plugins>
+
+                    <plugin>
+
+                          <artifactId>maven-compiler-plugin</artifactId>
+
+                          <version>3.1</version>
+
+                          <configuration>
+
+                                 <source>1.8</source>
+
+                                 <target>1.8</target>
+
+                          </configuration>
+
+                    </plugin>
+
+ 
+
+                    <plugin>
+
+                          <artifactId>maven-war-plugin</artifactId>
+
+                          <version>2.4</version>
+
+                          <configuration>
+
+                                 <warSourceDirectory>WebContent</warSourceDirectory>
+
+                                 <failOnMissingWebXml>true</failOnMissingWebXml>
+
+                          </configuration>
+
+                    </plugin>
+
+                    <plugin>
+
+                           <groupId>org.springframework.boot</groupId>
+
+                          <artifactId>spring-boot-maven-plugin</artifactId>
+
+                    </plugin>
+
+                    <plugin>
+
+                          <groupId>org.jacoco</groupId>
+
+                          <artifactId>jacoco-maven-plugin</artifactId>
+
+                          <version>0.8.1</version>
+
+                          <executions>
+
+                                 <execution>
+
+                                       <id>prepare-agent</id>
+
+                                       <goals>
+
+                                              <goal>prepare-agent</goal>
+
+                                       </goals>
+
+                                 </execution>
+
+                                 <execution>
+
+                                       <id>report</id>
+
+                                       <phase>prepare-package</phase>
+
+                                       <goals>
+
+                                              <goal>report</goal>
+
+                                       </goals>
+
+                                 </execution>
+
+                                 <execution>
+
+                                       <id>post-unit-test</id>
+
+                                       <phase>test</phase>
+
+                                       <goals>
+
+                                              <goal>report</goal>
+
+                                       </goals>
+
+                                       <configuration>
+
+                                              <!-- Sets the path to the file which contains the execution data. -->
+
+ 
+
+                                              <dataFile>target/jacoco.exec</dataFile>
+
+                                              <!-- Sets the output directory for the code coverage report. -->
+
+                                              <outputDirectory>target/jacoco-coverage</outputDirectory>
+
+                                       </configuration>
+
+                                 </execution>
+
+                          </executions>
+
+                          <configuration>
+
+                                 <systemPropertyVariables>
+
+                                       <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+
+                                 </systemPropertyVariables>
+
+                           </configuration>
+
+                    </plugin>
+
+             </plugins>
+
+ 
+
     </build>
-	
+
+      
+
     <artifactId>StudentWeb</artifactId>
 </project>
