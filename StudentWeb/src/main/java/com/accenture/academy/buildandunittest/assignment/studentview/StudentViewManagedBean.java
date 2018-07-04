@@ -35,7 +35,7 @@ public class StudentViewManagedBean {
 
 	@PostConstruct
 	public void init() {
-		list = new ArrayList<StudentBean>();
+		list = new ArrayList<>();
 	}
 
 	public void refreshStudentLists() {
@@ -47,8 +47,9 @@ public class StudentViewManagedBean {
 
 		if (studentFile.exists() && FileUtils.isCsvFile(realPath)) {
 			boolean isFirstLine = true;
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(studentFile));
+			 
+			try(BufferedReader br = new BufferedReader(new FileReader(studentFile))) {
+				
 				while ((line = br.readLine()) != null) {
 					// We skip the 1st line.
 					if (isFirstLine) {
@@ -58,11 +59,14 @@ public class StudentViewManagedBean {
 					final String[] oneLine = FileUtils.splitFile(line, ";");
 
 					list.add(computeStudentGrade(oneLine));
-
+					
 				}
 			} catch (IOException e) {
 				// Do nothing
 			}
+			
+			  
+
 		}
 
 		util.redirectWithGet();
