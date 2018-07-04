@@ -9,22 +9,13 @@ import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
-	static final public String EMPTY = "";
+	public static final String EMPTY = "";
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
-				return true;
-			}
-		}
+	public static boolean isEmpty(String value) {
+		return (value.isEmpty());
 
-		if (value.length() == 0) {
-			return true;
-		}
-
-		return false;
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
