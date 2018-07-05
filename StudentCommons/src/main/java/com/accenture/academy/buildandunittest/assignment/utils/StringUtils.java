@@ -1,8 +1,8 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -11,7 +11,7 @@ public class StringUtils {
 
 	public static final String EMPTY = "";
 
-	private static final String MINUS = "-";
+	private StringUtils() {}
 
 	public static boolean isEmpty(String value) {
 		return value.isEmpty();
@@ -32,14 +32,13 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			Logger.getLogger(e.getMessage());
 		}
 
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -61,7 +60,7 @@ public class StringUtils {
 		for (String string : value) {
 			value1 = value1 + value;
 		}
-		return value1.toString();
+		return value1;
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
