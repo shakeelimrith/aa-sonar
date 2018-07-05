@@ -14,14 +14,10 @@ public class StringUtils {
 	private static final String MINUS = "-";
 
 	static public boolean isEmpty(String value) {
-		if (value != null) {
+		if (value != null && value.length() == 0) {
 			if (value.isEmpty()) {
 				return true;
 			}
-		}
-
-		if (value.length() == 0) {
-			return true;
 		}
 
 		return false;
