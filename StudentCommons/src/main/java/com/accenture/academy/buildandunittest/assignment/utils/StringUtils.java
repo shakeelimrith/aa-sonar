@@ -18,11 +18,12 @@ public class StringUtils {
 			if (value.isEmpty()) {
 				return true;
 			}
+			if (value.length() == 0) {
+				return true;
+			}
 		}
 
-		if (value.length() == 0) {
-			return true;
-		}
+		
 
 		return false;
 	}
