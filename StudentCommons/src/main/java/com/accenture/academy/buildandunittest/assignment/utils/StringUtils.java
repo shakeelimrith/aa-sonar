@@ -14,8 +14,8 @@ public class StringUtils {
 	private static final String MINUS = "-";
 
 	static public boolean isEmpty(String value) {
-		if (value != null && value.length() == 0) {
-			if (value.isEmpty()) {
+		if (value != null) {
+			if (value.isEmpty() || value.length() == 0) {
 				return true;
 			}
 		}
