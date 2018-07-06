@@ -18,6 +18,11 @@ public final class GradeCalculatorUtils {
 	 *            Exams marks
 	 * @return The total marks
 	 */
+	
+	 private GradeCalculatorUtils() {
+	throw new IllegalStateException("Utility class");
+	}
+	
 	public static Double calculateTotalGrade(Double assignmentMarks, Double examsMarks) {
 		if (assignmentMarks == null || examsMarks == null) {
 			return Double.valueOf(0.0);

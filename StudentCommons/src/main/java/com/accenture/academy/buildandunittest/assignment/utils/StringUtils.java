@@ -4,10 +4,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
 
+	private StringUtils() {
+		throw new IllegalStateException("Utility class");
+		}
 	public static final String EMPTY = "";
 
 	//private static final String MINUS = "-";
