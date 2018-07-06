@@ -14,7 +14,6 @@ public class StringUtils {
 
 	public static boolean isEmpty(String value) {
 		if (((value != null)&& (value.isEmpty()))||(value.length() == 0)){
-			
 				return true;
 		}
 
