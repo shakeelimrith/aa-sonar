@@ -24,6 +24,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/StudentLib/Libraries/junit-3.8.1.jar"/>
-	<classpathentry kind="lib" path="/StudentLib/Libraries/commons-math-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/StudentLib/Libraries/commons-math-2.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
