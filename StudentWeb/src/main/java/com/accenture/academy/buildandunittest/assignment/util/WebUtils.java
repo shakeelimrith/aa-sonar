@@ -2,6 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.util;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.SocketException;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -20,6 +21,7 @@ public class WebUtils implements Serializable {
     	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
 
     	StringBuffer requestURL = request.getRequestURL();
+    	
         String queryString = request.getQueryString();
 
         if (queryString != null) {
@@ -30,7 +32,7 @@ public class WebUtils implements Serializable {
         try {
 			externalContext.redirect(requestURL.toString());
 		} catch (IOException e) {
-			throw new RuntimeException("Unable to rerirect to " + url);
+			throw new RuntimeException("Unable to redirect to " + url);
 		}
 
         facesContext.responseComplete();
