@@ -10,14 +10,16 @@ public class StringUtils {
 
 	public static final String EMPTY = "";
 
-	public static boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()||value.length() == 0) {
-				return true;
-			}
-		}
+	private static final String MINUS = "-";
 
-		return false;
+	public static boolean isEmpty(String value) {
+		
+		try {
+			return (value.isEmpty() || value.length() == 0);
+		}catch(NullPointerException e) {
+			return false;
+		}
+		
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -68,6 +70,7 @@ public class StringUtils {
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
+		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
