@@ -63,10 +63,11 @@ public class StringUtils {
 
 	public static String concatenate(String... value) {
 		String value1 = "";
+		String formattedValue="";
 		for (String string : value) {
-			value1.concat(string);
+		 formattedValue=value1.concat(string);
 		}
-		return value1;
+		return formattedValue;
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
