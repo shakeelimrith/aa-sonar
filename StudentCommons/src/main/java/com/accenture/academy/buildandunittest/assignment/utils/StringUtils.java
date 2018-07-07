@@ -2,15 +2,19 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
+	private StringUtils() {
+		super();
+	}
+	private static final Logger LOGGER = Logger.getLogger( StringUtils.class.getName() );
 	public static final String EMPTY = "";
-
-	private static final String MINUS = "-";
 
 	public static boolean isEmpty(String value) {
 		
@@ -37,14 +41,13 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE,e.toString());
 		}
 
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -66,7 +69,7 @@ public class StringUtils {
 		for (String string : value) {
 			value1 = value1 + value;
 		}
-		return value1.toString();
+		return value1;
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
