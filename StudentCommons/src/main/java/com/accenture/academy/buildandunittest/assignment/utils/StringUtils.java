@@ -9,21 +9,14 @@ import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
-	static final public String EMPTY = "";
+	public static final String EMPTY = "";
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
+	public static boolean isEmpty(String value) {
+		if (value != null && (value.isEmpty() || value.length() == 0)) {
 				return true;
-			}
 		}
-
-		if (value.length() == 0) {
-			return true;
-		}
-
 		return false;
 	}
 
@@ -42,7 +35,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 
 		return false;
