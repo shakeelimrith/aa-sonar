@@ -8,9 +8,7 @@ import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
-	static final public String EMPTY = "";
-
-	private static final String MINUS = "-";
+	public static final String EMPTY = "";
 
 	public static boolean isEmpty(String value) {
 		if (value != null) {
@@ -70,7 +68,6 @@ public class StringUtils {
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
