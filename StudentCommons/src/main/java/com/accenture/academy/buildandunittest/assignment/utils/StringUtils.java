@@ -68,8 +68,7 @@ public class StringUtils {
 		for (int i =0;i<value.length;++i) {
 			 bld.append(value[i]);
 		}
-		String value1=bld.toString();
-		return value1;
+		return bld.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {

@@ -9,6 +9,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import com.accenture.academy.buildandunittest.assignment.exceptions.RedirectionException;
+
 @ManagedBean(name="commonUtils")
 @ApplicationScoped
 public class WebUtils implements Serializable {
@@ -30,7 +32,7 @@ public class WebUtils implements Serializable {
         try {
 			externalContext.redirect(requestURL.toString());
 		} catch (IOException e) {
-			throw new RuntimeException("Unable to rerirect to " + url);
+			throw new RedirectionException("Unable to rerirect to " + url);
 		}
 
         facesContext.responseComplete();
