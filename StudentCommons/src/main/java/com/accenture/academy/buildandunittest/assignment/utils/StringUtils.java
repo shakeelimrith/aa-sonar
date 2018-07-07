@@ -1,6 +1,5 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -8,14 +7,23 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private StringUtils() {
+		
+	}
 
 	public static final String EMPTY = "";
 
 	private static final String MINUS = "-";
 
 	public static boolean isEmpty(String value) {
-		if (value != null && (value.isEmpty() || value.length() == 0)) {
+		if (value != null) {
+			if(value.isEmpty()) {
 				return true;
+			}
+			if(value.length() == 0) {
+				return true;
+			}	
 		}
 		return false;
 	}
@@ -35,6 +43,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
+			
 			System.out.println(e.getMessage());
 		}
 
@@ -42,10 +51,16 @@ public class StringUtils {
 	}
 
 	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+			{
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
+		
+		if(string == null) {
+			throw new NullPointerException("String is null");
+		}
+		
+		else {
 
 		final Pattern p = Pattern.compile(pattern);
 		final String enter = string;
@@ -57,27 +72,27 @@ public class StringUtils {
 		}
 
 		return buffer.toString();
+		}
 	}
 
 	public static String concatenate(String... value) {
 		String value1 = "";
 		for (String string : value) {
-			value1 = value1 + value;
+			value1 = string + value;
 		}
-		return value1.toString();
+		return value1;
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
 		return firstValue;
 	}
 
-	public static boolean stringContainsInList(List list, String value) {
+	public static boolean stringContainsInList(List<?> list, String value) {
 		boolean result = false;
-		for (final Iterator iterator = list.iterator(); iterator.hasNext();) {
+		for (final Iterator<?> iterator = list.iterator(); iterator.hasNext();) {
 			final String valueInList = (String) iterator.next();
 			if (valueInList.equals(value.replaceAll("[\\s+_]", ""))) {
 				result = true;
@@ -87,6 +102,7 @@ public class StringUtils {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	private static String createFiller(int numberOfFiller, char typeOfFiller) {
 		final StringBuilder fillerString = new StringBuilder();
 		for (int i = 0; i < numberOfFiller; i++) {

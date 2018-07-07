@@ -1,0 +1,7 @@
+
+ksquid:S30667"<Lower the visibility of this setter or remove it altogether.(Ä‘ÄÈH/RMINORZVULNERABILITY
+psquid:S3066;"<Lower the visibility of this setter or remove it altogether.(ãˆãóøÿÿÿÿH0RMINORZVULNERABILITY
+Œsquid:S1488*"`Immediately return this expression instead of assigning it to the temporary variable "minMarks".(™ü¨©H1RMINORZ
+CODE_SMELL
+ssquid:HiddenFieldCheck*"<Rename "minMarks" which hides the field declared at line 18.(™ü¨©H2RMAJORZ
+CODE_SMELL
