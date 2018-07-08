@@ -2,7 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.util;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.SocketException;
+import java.net.MalformedURLException;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 public class WebUtils implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public void redirectWithGet() {
+	public void redirectWithGet() throws MalformedURLException {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
     	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
 
-    	StringBuffer requestURL = request.getRequestURL();
+    	StringBuilder requestURL = new StringBuilder(request.getRequestURL().toString());
     	
         String queryString = request.getQueryString();
 
@@ -32,7 +32,7 @@ public class WebUtils implements Serializable {
         try {
 			externalContext.redirect(requestURL.toString());
 		} catch (IOException e) {
-			throw new RuntimeException("Unable to redirect to " + url);
+			throw new MalformedURLException("Unable to redirect to " + url);
 		}
 
         facesContext.responseComplete();

@@ -2,18 +2,26 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringUtils {
 
+	private StringUtils() {
+	}
+
 	public static final String EMPTY = "";
 
-	private StringUtils() {}
+	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 
 	public static boolean isEmpty(String value) {
-		return value.isEmpty();
+		try {
+			return (value.isEmpty() || value.length() == 0);
+		} catch (NullPointerException e) {
+			return false;
+		}
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -31,7 +39,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			Logger.getLogger(e.getMessage());
+			LOGGER.log(Level.SEVERE, e.toString());
 		}
 
 		return false;
@@ -55,17 +63,18 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
-		
-		for (String string : value) {
-			value1 = string.concat(value1);
+
+		StringBuilder builder = new StringBuilder();
+
+		for (int i = 0; i < value.length; ++i) {
+			builder.append(value[i]);
 		}
-		
-		return value1;
+
+		return builder.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		
+
 		if (firstValue == null) {
 			firstValue = "null";
 		}

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class StudentViewManagedBean {
 		list = new ArrayList<>();
 	}
 
-	public void refreshStudentLists() {
+	public void refreshStudentLists() throws MalformedURLException {
 		init();
 		String realPath = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/students/students.csv");
 
