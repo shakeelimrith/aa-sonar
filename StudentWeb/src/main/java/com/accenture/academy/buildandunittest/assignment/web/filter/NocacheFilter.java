@@ -25,8 +25,9 @@ public class NocacheFilter implements Filter {
     }
     
     public void destroy() {
-    	
+    	//Do nothing
     }
     public void init(FilterConfig fConfig) throws ServletException {
+    	//Do nothing
     }
 }
