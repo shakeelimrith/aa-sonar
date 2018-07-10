@@ -56,7 +56,13 @@ public class StringUtils {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+			if(enter==null) {
+				throw new NullPointerException();
+			}
+			else {
+				buffer.append(enter.substring(m.start(), m.end()));
+			}
+			
 		}
 
 		return buffer.toString();
