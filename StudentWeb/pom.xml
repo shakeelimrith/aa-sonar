@@ -7,6 +7,18 @@
 	<groupId>com.accenture.academy.buildandunittest.assignment</groupId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
+	<dependencies>
+	<dependency>
+	<groupId>com.accenture.academy.buildandunittest.assignment</groupId>
+	<artifactId>StudentCommons</artifactId>
+	<version>1.0.0</version>
+	
+	
+	</dependency>
+	
+	
+	
+	</dependencies>
 	
 	
           
