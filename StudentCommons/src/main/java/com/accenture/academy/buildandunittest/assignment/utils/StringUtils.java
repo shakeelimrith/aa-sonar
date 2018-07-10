@@ -2,6 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -9,6 +10,8 @@ import java.util.regex.PatternSyntaxException;
 public class StringUtils {
 	
 	private StringUtils() {}
+	
+	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 
 	public static final String EMPTY = "";
 
@@ -32,7 +35,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			LOGGER.log(null,"NullPointerException",e);
 		}
 
 		return false;
