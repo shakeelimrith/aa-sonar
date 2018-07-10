@@ -47,29 +47,27 @@ public class StringUtils {
 
 		final Pattern p = Pattern.compile(pattern);
 		final String enter = string;
-
-		final Matcher m = p.matcher(enter);
-		final StringBuilder buffer = new StringBuilder();
-		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+		if(enter != null) {
+			final Matcher m = p.matcher(enter);
+			final StringBuilder buffer = new StringBuilder();
+			while (m.find()) {
+				buffer.append(enter.substring(m.start(), m.end()));
+		}
+			return buffer.toString();
+		}else {
+			return null;
 		}
 
-		return buffer.toString();
+		
 	}
 
 	public static String concatenate(String... value) {
-		/*String value1 = "";
-		StringBuilder bld = new StringBuilder();
-		  for (int i = 0; i < value1.length(); ++i) {
-		    bld.append(i);
-		  }
-		  return bld.toString();*/
-		
-		String value1 = "";
-		for (String string : value) {
-			value1 = value1 + value;
+		StringBuilder value1 = new StringBuilder();
+		  
+		for(String string : value) {
+			value1 = value1.append(string);
 		}
-		return value1;
+		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
