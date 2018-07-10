@@ -1,26 +1,24 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private StringUtils() {
+		
+	}
 
-	static final public String EMPTY = "";
+	public static final String EMPTY = "";
 
-	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
-				return true;
-			}
-		}
-
-		if (value.length() == 0) {
+	public static boolean isEmpty(String value) {
+		if (value != null && value.isEmpty() || value != null && value.length() == 0) {
 			return true;
 		}
 
@@ -42,14 +40,13 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			Logger.getLogger(StringUtils.class.getSimpleName()).log(Level.SEVERE, e.getMessage());
 		}
 
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -67,15 +64,15 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
-		for (String string : value) {
-			value1 = value1 + value;
+		StringBuilder value1 = new StringBuilder();
+		for (int i = 0; i < value.length; i++) {
+			value1.append(value[i]);
 		}
 		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
+		
 		if (firstValue == null) {
 			firstValue = "null";
 		}
@@ -94,15 +91,9 @@ public class StringUtils {
 		return result;
 	}
 
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
