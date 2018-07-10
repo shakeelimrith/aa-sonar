@@ -85,7 +85,7 @@ public class StringUtils {
 		return result;
 	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
