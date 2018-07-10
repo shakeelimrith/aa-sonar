@@ -65,7 +65,9 @@ public class StudentViewManagedBean {
 				// Do nothing
 			} finally {
 				try {
-					br.close();
+					if (br != null) {
+						br.close();
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

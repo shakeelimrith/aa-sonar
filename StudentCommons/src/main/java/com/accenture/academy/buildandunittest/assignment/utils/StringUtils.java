@@ -40,7 +40,8 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern){
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
+			throws NullPointerException{
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
