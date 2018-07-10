@@ -1,6 +1,5 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -8,10 +7,10 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private StringUtils() {}
 
 	public static final String EMPTY = "";
-
-	private static final String MINUS = "-";
 
 	public static boolean isEmpty(String value) {
 		return (value.isEmpty());
@@ -21,11 +20,11 @@ public class StringUtils {
 	public static boolean isEqualsObscure(String value1, String value2) {
 		try {
 			if (value1 == null) {
-				value1 = "";
+				value1 = EMPTY;
 			}
 
 			if (value2 == null) {
-				value2 = "";
+				value2 = EMPTY;
 			}
 
 			if (value1.equals(value2)) {
@@ -73,9 +72,9 @@ public class StringUtils {
 		return firstValue;
 	}
 
-	public static boolean stringContainsInList(List list, String value) {
+	public static boolean stringContainsInList(List<?> list, String value) {
 		boolean result = false;
-		for (final Iterator iterator = list.iterator(); iterator.hasNext();) {
+		for (final Iterator<?> iterator = list.iterator(); iterator.hasNext();) {
 			final String valueInList = (String) iterator.next();
 			if (valueInList.equals(value.replaceAll("[\\s+_]", ""))) {
 				result = true;
