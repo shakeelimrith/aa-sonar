@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
 	
@@ -42,7 +42,7 @@ public class StringUtils {
 	}
 
 	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws  IllegalArgumentException{
+			{
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
