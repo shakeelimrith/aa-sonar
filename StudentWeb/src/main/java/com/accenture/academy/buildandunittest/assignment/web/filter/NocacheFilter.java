@@ -25,11 +25,11 @@ public class NocacheFilter implements Filter {
     }
     
     public void destroy() {
-    	throw new UnsupportedOperationException();
+    	//blank code
     }
     
     public void init(FilterConfig fConfig) throws ServletException {
-    	throw new UnsupportedOperationException();
+    	//blank code
     }
     
 }
