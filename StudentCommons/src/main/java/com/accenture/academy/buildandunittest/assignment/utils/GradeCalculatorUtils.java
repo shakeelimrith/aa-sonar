@@ -8,6 +8,9 @@ import org.apache.commons.math.util.FastMath;
 import com.accenture.academy.buildandunittest.assignment.enumerations.GradeEnum;
 
 public final class GradeCalculatorUtils {
+	
+	private GradeCalculatorUtils() {
+	}
 
 	/**
 	 * Computes the marks (40% of assignment and 60% of exams).
@@ -82,10 +85,10 @@ public final class GradeCalculatorUtils {
 		final Double minBoundaryDouble = Double.valueOf((double) minBoundary);
 		final Double maxBoundaryDouble = Double.valueOf((double) maxBoundary);
 		if (maxBoundary == 100) {
-			return valueToCheck >= minBoundaryDouble & valueToCheck <= maxBoundaryDouble;
+			return valueToCheck >= minBoundaryDouble && valueToCheck <= maxBoundaryDouble;
 		}
 
-		return valueToCheck >= minBoundaryDouble & valueToCheck < maxBoundaryDouble;
+		return valueToCheck >= minBoundaryDouble && valueToCheck < maxBoundaryDouble;
 	}
 
 }

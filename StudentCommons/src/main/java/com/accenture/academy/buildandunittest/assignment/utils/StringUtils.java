@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 	
@@ -17,7 +16,7 @@ public class StringUtils {
 	public static final String EMPTY = "";
 
 	public static boolean isEmpty(String value) {
-		return value != null & value.length() == 0;
+		return value != null && value.length() == 0;
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
