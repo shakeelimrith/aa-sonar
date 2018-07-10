@@ -16,10 +16,7 @@ public class StringUtils {
 
 	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 
-	private static final String EMPTY = "";
-
-	private static final String MINUS = "-";
-
+	
 	public static boolean isEmpty(String value) {
 
 		return (value != null && value.isEmpty());
