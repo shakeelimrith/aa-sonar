@@ -1,30 +1,29 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
+
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
 
-	static final public String EMPTY = "";
+	private StringUtils() {
+		throw new IllegalStateException("Utility Class");
+	}
+
+	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
+
+	private static final String EMPTY = "";
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
-				return true;
-			}
-		}
+	public static boolean isEmpty(String value) {
 
-		if (value.length() == 0) {
-			return true;
-		}
+		return (value != null && value.isEmpty());
 
-		return false;
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -42,40 +41,41 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			LOGGER.log(null, "NullPointerException", e);
 		}
-
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
 
 		final Pattern p = Pattern.compile(pattern);
 		final String enter = string;
+		if (enter != null) {
+			final Matcher m = p.matcher(enter);
+			final StringBuilder buffer = new StringBuilder();
+			while (m.find()) {
+				buffer.append(enter.substring(m.start(), m.end()));
+			}
 
-		final Matcher m = p.matcher(enter);
-		final StringBuilder buffer = new StringBuilder();
-		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+			return buffer.toString();
+		} else {
+			return null;
 		}
-
-		return buffer.toString();
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder value1 = new StringBuilder();
+		
 		for (String string : value) {
-			value1 = value1 + value;
+			value1 = value1.append(value);
 		}
 		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}

@@ -3,7 +3,6 @@
 	<name>StudentWeb</name>
 	<comment></comment>
 	<projects>
-		<project>StudentCommons</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
