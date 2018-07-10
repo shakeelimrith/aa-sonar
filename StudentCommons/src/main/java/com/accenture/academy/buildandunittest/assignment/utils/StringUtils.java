@@ -2,6 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,15 +12,13 @@ public class StringUtils {
 	private StringUtils() {
 		throw new IllegalStateException("Utility class");
 		}
+	private static final Logger LOGGER= Logger.getLogger(StringUtils.class.getName());
 	public static final String EMPTY = "";
 
 
 	public static boolean isEmpty(String value) {
-		if (((value != null)&& (value.isEmpty()))||(value.length() == 0)){
-				return true;
-		}
-
-		return false;
+		return (((value != null)&& (value.isEmpty())));
+						
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -38,7 +37,8 @@ public class StringUtils {
 
 		} catch (NullPointerException e) {
 			
-			System.err.println(e);
+			LOGGER.log(null,"NullPointerException",e);
+			
 		}
 
 		return false;
@@ -51,7 +51,7 @@ public class StringUtils {
 
 		final Pattern p = Pattern.compile(pattern);
 		final String enter = string;
-
+		if(enter!=null) {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
@@ -59,8 +59,10 @@ public class StringUtils {
 		}
 
 		return buffer.toString();
+	} else {
+		return null;
 	}
-
+	}
 	public static String concatenate(String... value) {
 		String value1 = "";
 		String formattedValue="";
@@ -90,6 +92,14 @@ public class StringUtils {
 		return result;
 	}
 
+	private static String createFiller(int numberOfFiller, char typeOfFiller) {
+		final StringBuilder fillerString = new StringBuilder();
+		for (int i = 0; i < numberOfFiller; i++) {
+			fillerString.append(typeOfFiller);
+		}
+		return fillerString.toString();
+	} 
+	
 	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
