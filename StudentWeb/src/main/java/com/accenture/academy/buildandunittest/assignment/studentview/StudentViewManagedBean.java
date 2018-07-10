@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -15,13 +16,17 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
+import com.accenture.academy.buildandunittest.assignment.util.RedirectException;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.GradeCalculatorUtils;
 
+
 @ManagedBean(name = "studentViewManagedBean")
 @SessionScoped
 public class StudentViewManagedBean {
+	
+	private static final Logger LOGGER = Logger.getLogger(StudentViewManagedBean.class.getName());
 
 	/** List of students. */
 	private List<StudentBean> list;
@@ -35,7 +40,7 @@ public class StudentViewManagedBean {
 
 	@PostConstruct
 	public void init() {
-		list = new ArrayList<StudentBean>();
+		list = new ArrayList<>();
 	}
 
 	public void refreshStudentLists() {
@@ -47,8 +52,7 @@ public class StudentViewManagedBean {
 
 		if (studentFile.exists() && FileUtils.isCsvFile(realPath)) {
 			boolean isFirstLine = true;
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(studentFile));
+			try (BufferedReader br = new BufferedReader(new FileReader(studentFile))){
 				while ((line = br.readLine()) != null) {
 					// We skip the 1st line.
 					if (isFirstLine) {
@@ -65,7 +69,11 @@ public class StudentViewManagedBean {
 			}
 		}
 
-		util.redirectWithGet();
+		try {
+			util.redirectWithGet();
+		} catch (RedirectException e) {
+			LOGGER.log(null, e.getMessage(), e);
+		}
 	}
 
 	private StudentBean computeStudentGrade(String[] oneLine) {
