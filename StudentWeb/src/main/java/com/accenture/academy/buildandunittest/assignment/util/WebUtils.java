@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WebUtils implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	public void redirectWithGet() {
+	public void redirectWithGet() throws RedirectException{
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
     	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
@@ -30,7 +30,7 @@ public class WebUtils implements Serializable {
         try {
 			externalContext.redirect(requestURL.toString());
 		} catch (IOException e) {
-			throw new RuntimeException("Unable to rerirect to " + url);
+			throw new RedirectException("Unable to rerirect to " + url);
 		}
 
         facesContext.responseComplete();

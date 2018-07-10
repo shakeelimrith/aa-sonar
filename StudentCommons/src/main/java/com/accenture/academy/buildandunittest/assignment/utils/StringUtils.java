@@ -42,7 +42,7 @@ public class StringUtils {
 	}
 
 	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+			throws  IllegalArgumentException{
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -60,15 +60,17 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
-		for (String string : value) {
-			value1 = value1 + value;
-		}
-		return value1.toString();
+	
+		StringBuilder bld = new StringBuilder();
+		  for (int i = 0; i < value.length; ++i) {
+		    bld.append(value[i]);
+		  }
+		  return bld.toString();
+		 
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
+
 		if (firstValue == null) {
 			firstValue = "null";
 		}
@@ -85,28 +87,6 @@ public class StringUtils {
 			}
 		}
 		return result;
-	}
-
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
-
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
-		if (input != null) {
-			final String rtrim = input.replaceAll("\\s+$", "");
-
-			if (convertToNull && "".equals(rtrim)) {
-				return null;
-			}
-
-			return rtrim;
-
-		}
-		return null;
 	}
 
 }

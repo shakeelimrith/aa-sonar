@@ -24,6 +24,10 @@ public class NocacheFilter implements Filter {
         chain.doFilter(request, response);
     }
     
-    public void destroy() {}
-    public void init(FilterConfig fConfig) throws ServletException {}
+    public void destroy() {
+    	//I do not know why it is empty, looks suspicious o.O
+    }
+    public void init(FilterConfig fConfig) throws ServletException {
+    	//I do not know why it is empty, looks suspicious o.O
+    }
 }

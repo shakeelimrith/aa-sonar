@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -15,13 +16,17 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
+import com.accenture.academy.buildandunittest.assignment.util.RedirectException;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.GradeCalculatorUtils;
+import com.accenture.academy.buildandunittest.assignment.utils.StringUtils;
 
 @ManagedBean(name = "studentViewManagedBean")
 @SessionScoped
 public class StudentViewManagedBean {
+	
+	private static final Logger LOGGER = Logger.getLogger(StudentViewManagedBean.class.getName());
 
 	/** List of students. */
 	private List<StudentBean> list;
@@ -35,7 +40,7 @@ public class StudentViewManagedBean {
 
 	@PostConstruct
 	public void init() {
-		list = new ArrayList<StudentBean>();
+		list = new ArrayList<>();
 	}
 
 	public void refreshStudentLists() {
@@ -63,7 +68,11 @@ public class StudentViewManagedBean {
 			} catch (IOException e) {
 				// Do nothing
 			}
-		util.redirectWithGet();
+		try {
+			util.redirectWithGet();
+		} catch (RedirectException e) {
+			LOGGER.log(null, "RedirectException", e);
+		}
 		}
 	}
 
