@@ -40,13 +40,18 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws NullPointerException{
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
 
 		final Pattern p = Pattern.compile(pattern);
+		
+		//null check is done above using method isEmpty
+		if(string == null) {
+			return string;
+		}
+		
 		final String enter = string;
 
 		final Matcher m = p.matcher(enter);

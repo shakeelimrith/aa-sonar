@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -28,6 +30,8 @@ public class StudentViewManagedBean {
 
 	@ManagedProperty(value = "#{commonUtils}")
 	private WebUtils util;
+	
+	private static Logger logger = Logger.getLogger(StudentViewManagedBean.class.getName());
 
 	public void setUtil(WebUtils util) {
 		this.util = util;
@@ -69,7 +73,7 @@ public class StudentViewManagedBean {
 						br.close();
 					}
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.log(Level.FINE, e.getMessage());
 				}
 			}
 		}
