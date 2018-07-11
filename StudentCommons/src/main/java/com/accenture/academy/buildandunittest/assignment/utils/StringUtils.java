@@ -1,17 +1,17 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
 	
 	private StringUtils() {
+		super();
 		
 	}
 
@@ -58,7 +58,9 @@ public class StringUtils {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+			if (enter != null) {
+				buffer.append(enter.substring(m.start(), m.end()));
+			}
 		}
 
 		return buffer.toString();
@@ -91,7 +93,7 @@ public class StringUtils {
 		return result;
 	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 

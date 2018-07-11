@@ -9,7 +9,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
-@ManagedBean(name="commonUtils")
+import com.accenture.academy.buildandunittest.assignment.exceptions.UnableToRedirectException;
+
+@ManagedBean(name = "commonUtils")
 @ApplicationScoped
 public class WebUtils implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,22 +19,26 @@ public class WebUtils implements Serializable {
 	public void redirectWithGet() {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
-    	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
+		HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
 
-    	StringBuffer requestURL = request.getRequestURL();
-        String queryString = request.getQueryString();
+		StringBuffer requestURL = request.getRequestURL();
+		String queryString = request.getQueryString();
 
-        if (queryString != null) {
-            requestURL.append('?').append(queryString).toString();
-        }
-
-        String url = requestURL.toString();
-        try {
-			externalContext.redirect(requestURL.toString());
-		} catch (IOException e) {
-			throw new RuntimeException("Unable to rerirect to " + url);
+		if (queryString != null) {
+			requestURL.append('?').append(queryString).toString();
 		}
 
-        facesContext.responseComplete();
+		String url = requestURL.toString();
+		try {
+			externalContext.redirect(requestURL.toString());
+		} catch (IOException e) {
+			try {
+				throw new UnableToRedirectException("Unable to rerirect to " + url);
+			} catch (UnableToRedirectException e1) {
+				e1.getMessage();
+			}
+		}
+
+		facesContext.responseComplete();
 	}
 }
