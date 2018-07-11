@@ -2,6 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +11,7 @@ public class StringUtils {
 	private StringUtils() {}
 	
 	public static final  String EMPTY = "";
-
+	static Logger logger;
 
 	public static boolean isEmpty(String value) {
 		if(value != null && value.isEmpty()) {
@@ -34,7 +35,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			logger.log(null, e.getMessage());
 		}
 
 		return false;
@@ -86,15 +87,8 @@ public class StringUtils {
 		return result;
 	}
 
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
