@@ -50,13 +50,13 @@ public enum GradeEnum {
 	public final int getMaxMarks() {
 		return maxMarks;
 	}
-
-	private void setMinMarks(int minMarks) {
+/*
+	void setMinMarks(int minMarks) {
 		this.minMarks = minMarks;
 	}
 
-	private void setMaxMarks(int maxMarks) {
+	void setMaxMarks(int maxMarks) {
 		this.maxMarks = maxMarks;
 	}
-
+*/
 }
