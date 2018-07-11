@@ -6,7 +6,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 	
@@ -18,11 +17,8 @@ public class StringUtils {
 
 
 	public static boolean isEmpty(String value) {
-		if (value != null && value.isEmpty() || value != null && value.length() == 0) {
-			return true;
-		}
-
-		return false;
+		
+		return value != null && value.isEmpty() || value != null && value.length() == 0;
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -57,7 +53,9 @@ public class StringUtils {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+			if (enter != null) {
+				buffer.append(enter.substring(m.start(), m.end()));
+			}
 		}
 
 		return buffer.toString();
