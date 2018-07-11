@@ -19,10 +19,11 @@ public class StringUtils {
 	
 
 	public static boolean isEmpty(String value) {
-		if (value != null && value.isEmpty() || value != null && value.length() == 0) {
-			return true;
-		}
+		try {
+			return (value.isEmpty() || value.length() == 0);
+		}catch(NullPointerException e) {
 			return false;
+		}
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
