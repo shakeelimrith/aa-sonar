@@ -13,7 +13,7 @@ public class StringUtils {
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
+	/*static public boolean isEmpty(String value) {
 		if (value != null && value.length() == 0) {
 			
 				return true;
@@ -21,7 +21,18 @@ public class StringUtils {
 		}
 		return false;
 			
-	}
+	}*/
+    	private StringUtils() {
+       		 throw new IllegalStateException("Utility class");
+       	 }
+    	private static final Logger LOGGER= Logger.getLogger(StringUtils.class.getName());
+ 
+
+
+   	 public static boolean isEmpty(String value) {
+        		return ((value != null)&& (value.isEmpty()));
+                                                    
+  	  }
 
 	public static boolean isEqualsObscure(String value1, String value2) {
 		try {
