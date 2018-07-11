@@ -1,6 +1,5 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -8,12 +7,16 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private StringUtils() {
+		
+	}
 
-	static final public String EMPTY = "";
+	public static final String EMPTY = "";
 
-	private static final String MINUS = "-";
+	//private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
+	public static boolean isEmpty(String value) {
 		if (value != null && value.length() == 0 ) {
 			return true;
 		}
