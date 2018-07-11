@@ -9,5 +9,6 @@ public final class FileUtils {
 	public static String[] splitFile(String line, String delimeter) {
 		return line.split(delimeter);
 	}
+	private FileUtils() {}
 
 }

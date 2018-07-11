@@ -18,6 +18,8 @@ public final class GradeCalculatorUtils {
 	 *            Exams marks
 	 * @return The total marks
 	 */
+	
+	private GradeCalculatorUtils() {}
 	public static Double calculateTotalGrade(Double assignmentMarks, Double examsMarks) {
 		if (assignmentMarks == null || examsMarks == null) {
 			return Double.valueOf(0.0);
@@ -39,7 +41,6 @@ public final class GradeCalculatorUtils {
 	 * @return The total marks
 	 */
 	public static Double computeMark(Double mark, Double percentage, boolean giveAdditionalMarks) {
-		giveAdditionalMarks = false;
 		if (mark == null || percentage == null) {
 			return Double.valueOf(0.0);
 		}
@@ -47,7 +48,7 @@ public final class GradeCalculatorUtils {
 		if (giveAdditionalMarks) {
 			return FastMath.ceil(mark * percentage);
 		}
-		final BigDecimal total = new BigDecimal(mark * percentage);
+		final BigDecimal total = BigDecimal.valueOf(mark * percentage);
 		
 		return total.setScale(1, RoundingMode.CEILING).doubleValue();
 	}

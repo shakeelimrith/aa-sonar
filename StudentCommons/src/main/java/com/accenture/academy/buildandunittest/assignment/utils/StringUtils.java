@@ -1,30 +1,22 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
-	static final public String EMPTY = "";
+	private StringUtils() {}
+	
+	public static final  String EMPTY = "";
 
-	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
+	public static boolean isEmpty(String value) {
+		if(value != null && value.isEmpty()) {
 				return true;
-			}
 		}
-
-		if (value.length() == 0) {
-			return true;
-		}
-
-		return false;
+		return(value!=null && value.length() == 0);
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -48,8 +40,7 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern){
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -60,31 +51,32 @@ public class StringUtils {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
+			if(enter!=null) {
 			buffer.append(enter.substring(m.start(), m.end()));
+			}
 		}
 
 		return buffer.toString();
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder bld = new StringBuilder();
 		for (String string : value) {
-			value1 = value1 + value;
+			bld.append(string);
 		}
-		return value1.toString();
+		return bld.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
 		return firstValue;
 	}
 
-	public static boolean stringContainsInList(List list, String value) {
+	public static boolean stringContainsInList(List<?> list, String value) {
 		boolean result = false;
-		for (final Iterator iterator = list.iterator(); iterator.hasNext();) {
+		for (final Iterator<?> iterator = list.iterator(); iterator.hasNext();) {
 			final String valueInList = (String) iterator.next();
 			if (valueInList.equals(value.replaceAll("[\\s+_]", ""))) {
 				result = true;
