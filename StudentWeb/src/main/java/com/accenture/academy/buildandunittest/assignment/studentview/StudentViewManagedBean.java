@@ -63,7 +63,7 @@ public class StudentViewManagedBean {
 
 				}
 			} catch (IOException e) {
-				
+				//Do Nothing
 			}
 		}
 
