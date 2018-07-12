@@ -37,7 +37,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			logger.log(Level.FINE, e.getMessage());;
+			logger.log(Level.FINE, e.getMessage());
 		}
 
 		return false;
