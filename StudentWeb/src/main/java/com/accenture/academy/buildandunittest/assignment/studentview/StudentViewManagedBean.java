@@ -59,7 +59,6 @@ public class StudentViewManagedBean {
 
 					list.add(computeStudentGrade(oneLine));
 				}
-				br.close();
 			} catch (IOException e) {
 				// Do nothing
 			} 

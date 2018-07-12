@@ -2,7 +2,6 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,14 +12,13 @@ public class StringUtils {
 
 	public static final  String EMPTY = "";
 
-	//private static final String MINUS = "-";
-
 	public static boolean isEmpty(String value) {
 		if (value == null || value.isEmpty() || value.length() == 0) {
 			return true;
-		}
+		} else {
+			return false;
 
-		return false;
+		}
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -71,7 +69,6 @@ public class StringUtils {
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		//boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
@@ -89,14 +86,6 @@ public class StringUtils {
 		}
 		return result;
 	}
-
-//	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-//		final StringBuilder fillerString = new StringBuilder();
-//		for (int i = 0; i < numberOfFiller; i++) {
-//			fillerString.append(typeOfFiller);
-//		}
-//		return fillerString.toString();
-//	}
 
 	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull/*, boolean isPositive*/) {
 		if (input != null) {
