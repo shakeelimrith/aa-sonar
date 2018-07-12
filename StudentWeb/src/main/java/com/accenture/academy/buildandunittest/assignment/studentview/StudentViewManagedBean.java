@@ -68,7 +68,6 @@ public class StudentViewManagedBean {
 		try {
 			util.redirectWithGet();
 		} catch (MyRuntimeException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
