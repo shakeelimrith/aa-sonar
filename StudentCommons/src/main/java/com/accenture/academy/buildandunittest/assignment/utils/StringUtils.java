@@ -46,22 +46,28 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
 
 		final Pattern p = Pattern.compile(pattern);
 		final String enter = string;
-
-		final Matcher m = p.matcher(enter);
-		final StringBuilder buffer = new StringBuilder();
-		while (m.find()) {
-			buffer.append(enter.substring(m.start(), m.end()));
+		if(enter != null) {
+			final Matcher m = p.matcher(enter);
+			final StringBuilder buffer = new StringBuilder();
+			while (m.find()) {
+				buffer.append(enter.substring(m.start(), m.end()));
+			}
+			return buffer.toString();
+		}else {
+			return null;
+			
 		}
 
-		return buffer.toString();
+
+
+		
 	}
 
 	public static String concatenate(String... value) {
