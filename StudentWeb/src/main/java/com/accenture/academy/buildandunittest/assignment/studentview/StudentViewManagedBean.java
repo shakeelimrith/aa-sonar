@@ -14,7 +14,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.accenture.academy.buildandunittest.assignment.exception.MyRuntimeException;
+import com.accenture.academy.buildandunittest.assignment.exception.RedirectExceptions;
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
@@ -39,7 +39,7 @@ public class StudentViewManagedBean {
 		list = new ArrayList<>();
 	}
 
-	public void refreshStudentLists() {
+	public void refreshStudentLists() throws IOException, RedirectExceptions {
 		init();
 		String realPath = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/students/students.csv");
 
@@ -48,7 +48,9 @@ public class StudentViewManagedBean {
 
 		if (studentFile.exists() && FileUtils.isCsvFile(realPath)) {
 			boolean isFirstLine = true;
+
 			try (BufferedReader br = new BufferedReader(new FileReader(studentFile))) {
+
 				while ((line = br.readLine()) != null) {
 					// We skip the 1st line.
 					if (isFirstLine) {
@@ -61,16 +63,11 @@ public class StudentViewManagedBean {
 
 				}
 			} catch (IOException e) {
-				// Do nothing
+				// Do Nothing
 			}
 		}
 
-		try {
-			util.redirectWithGet();
-		} catch (MyRuntimeException e) {
-			
-			e.printStackTrace();
-		}
+		util.redirectWithGet();
 	}
 
 	private StudentBean computeStudentGrade(String[] oneLine) {
@@ -78,9 +75,9 @@ public class StudentViewManagedBean {
 		if (oneLine.length == 5) {
 			final Integer studentId = Integer.valueOf(oneLine[0]);
 			String fName = oneLine[1];
-			if (fName.isEmpty()) 
+			if (fName.isEmpty())
 				fName = "No Name";
-			
+
 			final String lName = oneLine[2];
 
 			final Double assignmentMarks = new BigDecimal(oneLine[3]).doubleValue();
