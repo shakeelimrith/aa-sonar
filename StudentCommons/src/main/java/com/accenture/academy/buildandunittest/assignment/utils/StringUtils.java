@@ -89,7 +89,7 @@ public class StringUtils {
 	public static boolean stringContainsInList(List<String> list, String value) {
 		boolean result = false;
 		for (final Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
-			final String valueInList = (String) iterator.next();
+			final String valueInList =  iterator.next();
 			if (valueInList.equals(value.replaceAll("[\\s+_]", ""))) {
 				result = true;
 				break;
@@ -100,7 +100,7 @@ public class StringUtils {
 
 	
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
