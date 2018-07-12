@@ -1,30 +1,4 @@
 
-Gsquid:S1643A"Use a StringBuilder instead.(ÏÃ4HDRMINORZ
-CODE_SMELL
-¶%squid:RedundantThrowsDeclarationCheck-"qRemove the declaration of thrown exception 'java.util.regex.PatternSyntaxException' which is a runtime exception.(Ñï¬uHERMINORZ
-CODE_SMELL
-Usquid:S1068")Remove this unused "MINUS" private field.(å§‰ĞHJRMAJORZ
-CODE_SMELL
-i
-squid:S106&"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿHKRMAJORZ
-CODE_SMELL
-ssquid:S1126"AReplace this if-then-else statement by a single return statement.(Ş—…ªûÿÿÿÿHƒRMINORZ
-CODE_SMELL
-\squid:S1481G"+Remove this unused "result" local variable.(ĞĞî…ıÿÿÿÿHNRMINORZ
-CODE_SMELL
-zsquid:S1858C"I"value1" is already a string, there's no need to call "toString()" on it.(Ã„ËÔúÿÿÿÿHRRMINORZ
-CODE_SMELL
-jsquid:UselessImportCheck"1Remove this unused import 'java.math.BigDecimal'.(êêŠHSRMINORZ
-CODE_SMELL
-Vsquid:S1481@"+Remove this unused "string" local variable.(ëû¾|HMRMINORZ
-CODE_SMELL
-®%squid:RedundantThrowsDeclarationCheck-"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Ñï¬uHFRMINORZ
-CODE_SMELL
-ksquid:UnusedPrivateMethodZ"1Remove this unused private "createFiller" method.(Ş±®HCRMAJORZ
-CODE_SMELL
-psquid:S22598"CA "NullPointerException" could be thrown; "enter" is nullable here.(À‹Ôï8‰­‡…Ç,H„RMAJORZBUG
-ksquid:S1118
-":Add a private constructor to hide the implicit public one.(Íë¹’ûÿÿÿÿHORMAJORZ
-CODE_SMELL
-]squid:S1172b"1Remove this unused method parameter "isPositive".(ëÆ’HPRMAJORZ
+j
+squid:S106,"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿHçRMAJORZ
 CODE_SMELL

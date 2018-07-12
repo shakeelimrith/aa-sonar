@@ -2,19 +2,20 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private static Logger logger = Logger.getLogger(StringUtils.class.getName());
 	
 	private StringUtils() {
 		
 	}
 
 	public static final String EMPTY = "";
-
-	private static final String MINUS = "-";
 
 	public static boolean isEmpty(String value) {
 		if (value != null) {
@@ -43,8 +44,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			
-			System.out.println(e.getMessage());
+			StringUtils.logger.log(Level.FINE, e.getMessage());
 		}
 
 		return false;
@@ -111,7 +111,7 @@ public class StringUtils {
 		return fillerString.toString();
 	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 

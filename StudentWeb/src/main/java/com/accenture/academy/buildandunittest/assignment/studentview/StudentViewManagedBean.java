@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -14,8 +16,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.apache.commons.math.optimization.univariate.BracketFinder;
-
+import com.accenture.academy.buildandunittest.assignment.exception.RedirectFailedException;
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
@@ -24,6 +25,8 @@ import com.accenture.academy.buildandunittest.assignment.utils.GradeCalculatorUt
 @ManagedBean(name = "studentViewManagedBean")
 @SessionScoped
 public class StudentViewManagedBean {
+	
+	private static Logger logger = Logger.getLogger(StudentViewManagedBean.class.getName());
 
 	/** List of students. */
 	private List<StudentBean> list;
@@ -68,7 +71,11 @@ public class StudentViewManagedBean {
 
 		}
 
-		util.redirectWithGet();
+		try {
+			util.redirectWithGet();
+		} catch (RedirectFailedException e) {
+			logger.log(Level.FINE, e.getMessage());
+		}
 	}
 
 	private StudentBean computeStudentGrade(String[] oneLine) {

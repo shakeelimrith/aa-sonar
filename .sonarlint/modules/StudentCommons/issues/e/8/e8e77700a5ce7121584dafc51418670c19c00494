@@ -1,8 +1,0 @@
-
-fsquid:S1118
-":Add a private constructor to hide the implicit public one.(ÒóïþH7RMAJORZ
-CODE_SMELL
-Gsquid:S2178W"Correct this "&" to "&&".(¾Ä§ÔH4RBLOCKERZ
-CODE_SMELL
-Lsquid:S2178T"Correct this "&" to "&&".(ìø»ÔÿÿÿÿÿH3RBLOCKERZ
-CODE_SMELL
