@@ -7,21 +7,19 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class StringUtils {
-	
+
 	private StringUtils() {
 		super();
-		
+
 	}
 
 	public static final String EMPTY = "";
-	
 
 	public static boolean isEmpty(String value) {
 		try {
 			return (value.isEmpty() || value.length() == 0);
-		}catch(NullPointerException e) {
+		} catch (NullPointerException e) {
 			return false;
 		}
 	}
@@ -47,8 +45,7 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-		{
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -59,9 +56,7 @@ public class StringUtils {
 		final Matcher m = p.matcher(enter);
 		final StringBuilder buffer = new StringBuilder();
 		while (m.find()) {
-			if (enter != null) {
-				buffer.append(enter.substring(m.start(), m.end()));
-			}
+			buffer.append(enter.substring(m.start(), m.end()));
 		}
 
 		return buffer.toString();
@@ -81,7 +76,7 @@ public class StringUtils {
 		}
 		return firstValue;
 	}
-	
+
 	public static boolean stringContainsInList(List list, String value) {
 		boolean result = false;
 		for (final Iterator iterator = list.iterator(); iterator.hasNext();) {
