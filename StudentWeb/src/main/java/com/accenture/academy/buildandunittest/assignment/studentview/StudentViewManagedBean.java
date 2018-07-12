@@ -16,6 +16,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import com.accenture.academy.buildandunittest.assignment.exceptions.UnableToRedirectException;
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
@@ -39,7 +40,7 @@ public class StudentViewManagedBean {
 
 	@PostConstruct
 	public void init() {
-		list = new ArrayList<StudentBean>();
+		list = new ArrayList<>();
 	}
 
 	public void refreshStudentLists() {
@@ -51,9 +52,9 @@ public class StudentViewManagedBean {
 
 		if (studentFile.exists() && FileUtils.isCsvFile(realPath)) {
 			boolean isFirstLine = true;
-			BufferedReader br = null;
-			try {
-				br = new BufferedReader(new FileReader(studentFile));
+			
+			try(BufferedReader br = new BufferedReader(new FileReader(studentFile))) {
+				
 				while ((line = br.readLine()) != null) {
 					// We skip the 1st line.
 					if (isFirstLine) {
@@ -66,19 +67,15 @@ public class StudentViewManagedBean {
 
 				}
 			} catch (IOException e) {
-				// Do nothing
-			} finally {
-				try {
-					if (br != null) {
-						br.close();
-					}
-				} catch (IOException e) {
-					logger.log(Level.FINE, e.getMessage());
-				}
+				//Do nothing
 			}
 		}
 
-		util.redirectWithGet();
+		try {
+			util.redirectWithGet();
+		} catch (UnableToRedirectException e) {
+			logger.log(Level.FINE, e.getMessage());
+		}
 	}
 
 	private StudentBean computeStudentGrade(String[] oneLine) {
