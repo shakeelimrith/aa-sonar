@@ -2,10 +2,12 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringUtils {
+	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 	private StringUtils() {
 		
 	}
@@ -13,12 +15,7 @@ public class StringUtils {
 	public static final  String EMPTY = "";
 
 	public static boolean isEmpty(String value) {
-		if (value == null || value.isEmpty() || value.length() == 0) {
-			return true;
-		} else {
-			return false;
-
-		}
+		return (value == null || value.isEmpty() || value.length() == 0) ;
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -36,8 +33,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
-			
+			LOGGER.log(null, e.getMessage());;
 		}
 
 		return false;
@@ -61,11 +57,11 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder value1 = new StringBuilder();
 		for (String string : value) {
-			value1 = value1 + value;
+			value1.append(string);
 		}
-		return value1;
+		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
