@@ -14,17 +14,7 @@ public class StringUtils {
 	private static final String MINUS = "-";
 
 	static public boolean isEmpty(String value) {
-		if (value != null) {
-			if (value.isEmpty()) {
-				return true;
-			}
-		}
-
-		if (value.length() == 0) {
-			return true;
-		}
-
-		return false;
+		return (value == null || value.isEmpty() || value.length() == 0);
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {

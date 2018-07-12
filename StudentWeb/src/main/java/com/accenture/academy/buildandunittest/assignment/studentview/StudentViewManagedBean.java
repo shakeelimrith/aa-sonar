@@ -47,8 +47,7 @@ public class StudentViewManagedBean {
 
 		if (studentFile.exists() && FileUtils.isCsvFile(realPath)) {
 			boolean isFirstLine = true;
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(studentFile));
+			try (BufferedReader br = new BufferedReader(new FileReader(studentFile))) {
 				while ((line = br.readLine()) != null) {
 					// We skip the 1st line.
 					if (isFirstLine) {
