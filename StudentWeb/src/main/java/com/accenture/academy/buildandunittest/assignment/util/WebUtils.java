@@ -31,7 +31,7 @@ public class WebUtils implements Serializable {
 
         String url = requestURL;
         try {
-			externalContext.redirect(requestURL.toString());
+			externalContext.redirect(requestURL);
 		} catch (IOException e) {
 			throw new RedirectExceptions("Unable to rerirect to " + url);
 		}
