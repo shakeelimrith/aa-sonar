@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
 	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 	private StringUtils() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static final  String EMPTY = "";
@@ -88,15 +88,7 @@ public class StringUtils {
 		return result;
 	}
 
-	/*private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}*/
-
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
