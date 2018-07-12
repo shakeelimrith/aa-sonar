@@ -15,14 +15,18 @@ public class StringUtils {
 
 	static public boolean isEmpty(String value) {
 		if (value != null) {
-			if (value.isEmpty()) {
+			/*if (value.isEmpty()) {
+				return true;
+			}*/
+			
+			if (value.length() == 0) {
 				return true;
 			}
 		}
 
-		if (value.length() == 0) {
+		/*if (value.length() == 0) {
 			return true;
-		}
+		}*/
 
 		return false;
 	}
