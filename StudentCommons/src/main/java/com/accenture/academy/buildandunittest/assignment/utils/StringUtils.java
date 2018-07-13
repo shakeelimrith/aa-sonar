@@ -14,7 +14,7 @@ public class StringUtils {
 
 	@SuppressWarnings("null")
 	static public boolean isEmpty(String value){
-		 return (value != null || value.length() == 0 || value.isEmpty());
+		 return (value == null || value.length() == 0 || value.isEmpty());
 		 }
 
 	public static boolean isEqualsObscure(String value1, String value2) {
