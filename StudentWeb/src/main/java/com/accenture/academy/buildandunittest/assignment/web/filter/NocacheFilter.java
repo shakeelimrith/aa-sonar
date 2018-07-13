@@ -27,10 +27,16 @@ public class NocacheFilter implements Filter {
     /**
      * Destroy Session
      */
-    public void destroy() {}
+    @Override
+    public void destroy() {
+    	//destroy
+    }
     
     /**
      * Initialization Method
      */
-    public void init(FilterConfig fConfig) throws ServletException {}
+    @Override
+    public void init(FilterConfig fConfig) throws ServletException {
+    	//init
+    }
 }
