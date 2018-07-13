@@ -8,13 +8,16 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	
+	private StringUtils() {
+	}
 
 	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 			
-	static final public String EMPTY = "";
+	public static final String EMPTY = "";
 
-	static public boolean isEmpty(String value) {
-		return (value != null || value.length() == 0 || value.isEmpty());
+	public static boolean isEmpty(String value) {
+		return (value == null || value.length() == 0 || value.isEmpty());
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
@@ -38,8 +41,7 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -83,7 +85,7 @@ public class StringUtils {
 		return result;
 	}
 
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
