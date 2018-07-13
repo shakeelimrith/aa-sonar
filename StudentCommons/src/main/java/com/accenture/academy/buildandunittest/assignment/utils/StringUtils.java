@@ -12,6 +12,7 @@ public class StringUtils {
 
 	private static final String MINUS = "-";
 
+	@SuppressWarnings("null")
 	static public boolean isEmpty(String value) throws NullPointerException {
 		 return value != null || value.length() == 0 || value.isEmpty();
 		 }
