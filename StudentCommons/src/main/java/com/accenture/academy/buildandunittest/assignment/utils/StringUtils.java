@@ -1,6 +1,5 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -13,7 +12,7 @@ public class StringUtils {
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
+	static public boolean isEmpty(String value) throws NullPointerException {
 		if (value != null) {
 			if (value.isEmpty()) {
 				return true;
