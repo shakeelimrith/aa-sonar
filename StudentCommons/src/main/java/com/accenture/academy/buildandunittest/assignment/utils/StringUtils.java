@@ -7,6 +7,9 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	private StringUtils() {
+		// TODO Auto-generated constructor stub
+	}
 
 	static final public String EMPTY = "";
 
