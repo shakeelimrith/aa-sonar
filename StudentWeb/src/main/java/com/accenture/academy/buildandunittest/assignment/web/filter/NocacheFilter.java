@@ -24,6 +24,13 @@ public class NocacheFilter implements Filter {
         chain.doFilter(request, response);
     }
     
+    /**
+     * Destroy Session
+     */
     public void destroy() {}
+    
+    /**
+     * Initialization Method
+     */
     public void init(FilterConfig fConfig) throws ServletException {}
 }
