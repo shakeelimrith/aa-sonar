@@ -10,15 +10,12 @@ import java.util.regex.PatternSyntaxException;
 public class StringUtils {
 	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 	private StringUtils() {
-		// TODO Auto-generated constructor stub
 	}
 
-	static final public String EMPTY = "";
-
-	private static final String MINUS = "-";
+	public static final  String EMPTY = "";
 
 	@SuppressWarnings("null")
-	static public boolean isEmpty(String value){
+	public static boolean isEmpty(String value){
 		 return (value == null || value.length() == 0 || value.isEmpty());
 		 }
 
@@ -43,8 +40,7 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -62,15 +58,14 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder value1 = new StringBuilder();
 		for (String string : value) {
-			value1 = value1 + value;
+			value1.append(string);
 		}
 		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
@@ -89,15 +84,7 @@ public class StringUtils {
 		return result;
 	}
 
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
-
-	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
+	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull) {
 		if (input != null) {
 			final String rtrim = input.replaceAll("\\s+$", "");
 
