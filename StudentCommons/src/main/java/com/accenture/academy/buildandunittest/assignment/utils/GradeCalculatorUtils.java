@@ -39,7 +39,6 @@ public final class GradeCalculatorUtils {
 	 * @return The total marks
 	 */
 	public static Double computeMark(Double mark, Double percentage, boolean giveAdditionalMarks) {
-		giveAdditionalMarks = false;
 		if (mark == null || percentage == null) {
 			return Double.valueOf(0.0);
 		}
