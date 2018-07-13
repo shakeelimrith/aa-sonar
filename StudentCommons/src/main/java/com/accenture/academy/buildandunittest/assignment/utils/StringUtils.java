@@ -2,11 +2,13 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
+	private static final Logger LOGGER = Logger.getLogger(StringUtils.class.getName());
 	private StringUtils() {
 		// TODO Auto-generated constructor stub
 	}
@@ -35,7 +37,7 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
+			LOGGER.log(null, e.getMessage());
 		}
 
 		return false;

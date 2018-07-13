@@ -2,9 +2,7 @@ package com.accenture.academy.buildandunittest.assignment.utils;
 
 public final class FileUtils {
 	
-	private FileUtils() {
-		// TODO Auto-generated constructor stub
-	}
+	private FileUtils() {}
 
 	public static boolean isCsvFile(String fileName) {
 		return fileName != null && fileName.endsWith(".csv");
