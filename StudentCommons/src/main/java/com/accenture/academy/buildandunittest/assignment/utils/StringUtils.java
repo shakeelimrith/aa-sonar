@@ -29,13 +29,8 @@ public class StringUtils {
 			if (value2 == null) {
 				value2 = "";
 			}
-
-			if (value1.equals(value2)) {
-				return true;
-			}
-
-		
-		return false;
+			
+		return (value1.equals(value2));
 	}
 
 	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
@@ -57,11 +52,11 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder value1 = new StringBuilder();
 		for (String string : value) {
-			value1 = value1 + string;
+			value1.append(string);
 		}
-		return value1;
+		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
