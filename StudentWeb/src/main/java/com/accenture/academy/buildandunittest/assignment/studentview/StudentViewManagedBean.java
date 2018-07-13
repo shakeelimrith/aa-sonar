@@ -35,7 +35,7 @@ public class StudentViewManagedBean {
 
 	@PostConstruct
 	public void init() {
-		list = new ArrayList<StudentBean>();
+		list = new ArrayList<>();
 	}
 
 	public void refreshStudentLists() {
