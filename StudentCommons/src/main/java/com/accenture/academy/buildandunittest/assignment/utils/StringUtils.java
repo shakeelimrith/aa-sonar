@@ -13,18 +13,8 @@ public class StringUtils {
 	private static final String MINUS = "-";
 
 	static public boolean isEmpty(String value) throws NullPointerException {
-		if (value != null) {
-			if (value.isEmpty()) {
-				return true;
-			}
-		}
-
-		if (value.length() == 0) {
-			return true;
-		}
-
-		return false;
-	}
+		 return value != null || value.length() == 0 || value.isEmpty();
+		 }
 
 	public static boolean isEqualsObscure(String value1, String value2) {
 		try {
