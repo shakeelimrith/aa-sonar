@@ -8,9 +8,14 @@ import java.util.regex.PatternSyntaxException;
 
 public class StringUtils {
 
+	private StringUtils() { 
+ 		 
+	} 
+
+ 
 	public static final String EMPTY = "";
 
-	private static final String MINUS = "-";
+	
 
 	public static boolean isEmpty(String value) {
 
@@ -37,14 +42,13 @@ public class StringUtils {
 			}
 
 		} catch (NullPointerException e) {
-			System.out.println(e);
-		}
+			Logger.getLogger(StringUtils.class.getSimpleName()).log(Level.SEVERE, e.getMessage());
+			}
 
 		return false;
 	}
 
 	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -61,21 +65,23 @@ public class StringUtils {
 		return buffer.toString();
 	}
 
-	public static String concatenate(String... value) {
-		String value1 = "";
-		for (String string : value) {
-			value1 = value1 + value;
-		}
-		return value1.toString();
-	}
-
-	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
-		if (firstValue == null) {
-			firstValue = "null";
-		}
-		return firstValue;
-	}
+	public static String concatenate(String... value) { 
+ 		StringBuilder value1 = new StringBuilder(); 
+ 		for (int i = 0; i < value.length; i++) { 
+ 			value1.append(value[i]); 
+ 		} 
+ 		return value1.toString(); 
+ 	} 
+ 
+ 
+ 	public static String convertValueToNullifnull(String firstValue) { 
+ 		 
+ 		if (firstValue == null) { 
+ 			firstValue = "null"; 
+ 		} 
+ 		return firstValue; 
+ 	} 
+	
 
 	public static boolean stringContainsInList(List list, String value) {
 		boolean result = false;
@@ -89,13 +95,7 @@ public class StringUtils {
 		return result;
 	}
 
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
+	
 
 	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
 		if (input != null) {

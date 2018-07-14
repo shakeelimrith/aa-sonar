@@ -19,7 +19,7 @@ public class WebUtils implements Serializable {
 		ExternalContext externalContext = facesContext.getExternalContext();
     	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
 
-    	StringBuffer requestURL = request.getRequestURL();
+    	StringBuilder requestURL = new StringBuilder(request.getRequestURL().toString());
         String queryString = request.getQueryString();
 
         if (queryString != null) {
@@ -30,7 +30,7 @@ public class WebUtils implements Serializable {
         try {
 			externalContext.redirect(requestURL.toString());
 		} catch (IOException e) {
-			throw new RuntimeException("Unable to rerirect to " + url);
+			throw new UnableToRedirectException("Unable to rerirect to " + url);
 		}
 
         facesContext.responseComplete();
