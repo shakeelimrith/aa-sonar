@@ -47,7 +47,7 @@ public final class GradeCalculatorUtils {
 		if (giveAdditionalMarks) {
 			return FastMath.ceil(mark * percentage);
 		}
-		final BigDecimal total =BigDecimal.valueOf(mark * percentage);
+		final BigDecimal total = BigDecimal.valueOf(mark * percentage);
 		
 		return total.setScale(1, RoundingMode.CEILING).doubleValue();
 	}
