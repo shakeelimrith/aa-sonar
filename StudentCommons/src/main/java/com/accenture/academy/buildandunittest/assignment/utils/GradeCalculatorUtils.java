@@ -18,6 +18,10 @@ public final class GradeCalculatorUtils {
 	 *            Exams marks
 	 * @return The total marks
 	 */
+	
+	private GradeCalculatorUtils() {
+		
+	}
 	public static Double calculateTotalGrade(Double assignmentMarks, Double examsMarks) {
 		if (assignmentMarks == null || examsMarks == null) {
 			return Double.valueOf(0.0);
@@ -82,10 +86,10 @@ public final class GradeCalculatorUtils {
 		final Double minBoundaryDouble = Double.valueOf((double) minBoundary);
 		final Double maxBoundaryDouble = Double.valueOf((double) maxBoundary);
 		if (maxBoundary == 100) {
-			return valueToCheck >= minBoundaryDouble & valueToCheck <= maxBoundaryDouble;
+			return valueToCheck >= minBoundaryDouble && valueToCheck <= maxBoundaryDouble;
 		}
 
-		return valueToCheck >= minBoundaryDouble & valueToCheck < maxBoundaryDouble;
+		return valueToCheck >= minBoundaryDouble && valueToCheck < maxBoundaryDouble;
 	}
 
 }
