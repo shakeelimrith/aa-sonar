@@ -16,7 +16,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.accenture.academy.buildandunittest.assignment.exception.RedirectFailedException;
+import com.accenture.academy.buildandunittest.assignment.exception.UnableToRedirectException;
 import com.accenture.academy.buildandunittest.assignment.student.StudentBean;
 import com.accenture.academy.buildandunittest.assignment.util.WebUtils;
 import com.accenture.academy.buildandunittest.assignment.utils.FileUtils;
@@ -73,7 +73,7 @@ public class StudentViewManagedBean {
 
 		try {
 			util.redirectWithGet();
-		} catch (RedirectFailedException e) {
+		} catch (UnableToRedirectException e) {
 			logger.log(Level.FINE, e.getMessage());
 		}
 	}
