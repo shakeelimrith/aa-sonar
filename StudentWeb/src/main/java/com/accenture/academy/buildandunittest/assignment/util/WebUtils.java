@@ -22,7 +22,8 @@ public class WebUtils implements Serializable {
     	HttpServletRequest request = (HttpServletRequest)externalContext.getRequest();
 
     	StringBuffer requestURL = request.getRequestURL();
-        String queryString = request.getQueryString();
+        StringBuilder queryString = new StringBuilder();
+        queryString.append(request.getQueryString());
 
         if (queryString != null) {
             requestURL.append('?').append(queryString).toString();
