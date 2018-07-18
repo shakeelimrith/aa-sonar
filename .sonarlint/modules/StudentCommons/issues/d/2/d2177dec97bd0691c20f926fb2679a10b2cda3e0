@@ -1,0 +1,9 @@
+
+ssquid:HiddenFieldCheck*"<Rename "minMarks" which hides the field declared at line 18.(™ü¨©HtRMAJORZ
+CODE_SMELL
+Œsquid:S1488*"`Immediately return this expression instead of assigning it to the temporary variable "minMarks".(™ü¨©HsRMINORZ
+CODE_SMELL
+vsquid:UnusedPrivateMethod7"0Remove this unused private "setMinMarks" method.(ìÙüÚÿÿÿÿÿ8“§µßÆ,HyRMAJORZ
+CODE_SMELL
+qsquid:UnusedPrivateMethod;"0Remove this unused private "setMaxMarks" method.(—ÂÇõ8“§µßÆ,HzRMAJORZ
+CODE_SMELL

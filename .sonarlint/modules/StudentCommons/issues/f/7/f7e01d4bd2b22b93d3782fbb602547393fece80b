@@ -1,0 +1,33 @@
+
+Usquid:S1068")Remove this unused "MINUS" private field.(å§‰ĞHGRMAJORZ
+CODE_SMELL
+®%squid:RedundantThrowsDeclarationCheck0"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Ñï¬uHCRMINORZ
+CODE_SMELL
+zsquid:S1858J"I"value1" is already a string, there's no need to call "toString()" on it.(Ã„ËÔúÿÿÿÿHORMINORZ
+CODE_SMELL
+\squid:S1481N"+Remove this unused "result" local variable.(ĞĞî…ıÿÿÿÿHKRMINORZ
+CODE_SMELL
+ksquid:S1118
+":Add a private constructor to hide the implicit public one.(Íë¹’ûÿÿÿÿHLRMAJORZ
+CODE_SMELL
+squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(™İ²”HERMINORZ
+CODE_SMELL
+Vsquid:S1481G"+Remove this unused "string" local variable.(ëû¾|HJRMINORZ
+CODE_SMELL
+jsquid:UselessImportCheck"1Remove this unused import 'java.math.BigDecimal'.(êêŠHPRMINORZ
+CODE_SMELL
+[squid:S1066"/Merge this if statement with the enclosing one.(´«ÌÁHFRMAJORZ
+CODE_SMELL
+]squid:S1172i"1Remove this unused method parameter "isPositive".(ëÆ’HMRMAJORZ
+CODE_SMELL
+„squid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Å»Ú«ûÿÿÿÿHDRMINORZ
+CODE_SMELL
+i
+squid:S106)"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHHRMAJORZ
+CODE_SMELL
+ksquid:UnusedPrivateMethoda"1Remove this unused private "createFiller" method.(Ş±®H@RMAJORZ
+CODE_SMELL
+Gsquid:S1643H"Use a StringBuilder instead.(ÏÃ4HARMINORZ
+CODE_SMELL
+¶%squid:RedundantThrowsDeclarationCheck0"qRemove the declaration of thrown exception 'java.util.regex.PatternSyntaxException' which is a runtime exception.(Ñï¬uHBRMINORZ
+CODE_SMELL

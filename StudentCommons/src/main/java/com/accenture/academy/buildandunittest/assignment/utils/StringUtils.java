@@ -69,9 +69,9 @@ public class StringUtils {
 	public static String concatenate(String... value) {
 		String value1 = "";
 		for (String string : value) {
-			value1 = value1 + value;
+			value1 = value1 + string;
 		}
-		return value1.toString();
+		return value1;
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {

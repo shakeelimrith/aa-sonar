@@ -39,7 +39,7 @@ public enum GradeEnum {
 	 * @return the minMarks
 	 */
 	public final int getMinMarks() {
-		int minMarks = 0;
+	
 		return minMarks;
 	}
 
