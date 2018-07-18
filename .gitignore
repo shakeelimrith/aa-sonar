@@ -1,1 +1,15 @@
 /.metadata/
+
+/.recommenders/
+
+/.sonarlint/
+
+/.RemoteSystemsTempFiles/
+
+/Server/
+
+/StudentLib/
+
+/StudentWeb/
+
+/apache-tomcat-8.5.31-windows-x64.zip/
