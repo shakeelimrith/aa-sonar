@@ -15,14 +15,12 @@ public class StringUtils {
 
 	//private static final String MINUS = "-";
 
-	public static boolean isEmpty(String value) {
-		if (value != null ||value.isEmpty() || value.length()==0) {
-			
-				return true;
-			
-		}
-
-		return false;
+	public static boolean isEmpty(String value)  {
+		try {
+			return (value.isEmpty() || value.length() == 0);
+		}catch(NullPointerException e) {
+			return false;
+		} 
 	}
 
 	public static boolean isEqualsObscure(String value1, String value2) {
