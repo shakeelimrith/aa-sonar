@@ -9,6 +9,7 @@ import com.accenture.academy.buildandunittest.assignment.enumerations.GradeEnum;
 
 public final class GradeCalculatorUtils {
 
+	private GradeCalculatorUtils() {}
 	/**
 	 * Computes the marks (40% of assignment and 60% of exams).
 	 * 
