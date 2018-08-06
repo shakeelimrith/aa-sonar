@@ -1,13 +1,21 @@
 package com.accenture.academy.buildandunittest.assignment.utils;
 
-import java.math.BigDecimal;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 public class StringUtils {
+	
+	
+
+	private StringUtils() {
+	
+	}
+
+
 
 	static final public String EMPTY = "";
 

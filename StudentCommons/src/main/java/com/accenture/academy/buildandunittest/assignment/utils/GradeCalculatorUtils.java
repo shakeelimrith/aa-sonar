@@ -18,12 +18,18 @@ public final class GradeCalculatorUtils {
 	 *            Exams marks
 	 * @return The total marks
 	 */
+	
+
 	public static Double calculateTotalGrade(Double assignmentMarks, Double examsMarks) {
 		if (assignmentMarks == null || examsMarks == null) {
 			return Double.valueOf(0.0);
 		}
 
 		return computeMark(assignmentMarks, 0.4, false) + computeMark(examsMarks, 0.6, false);
+
+	}
+
+	private GradeCalculatorUtils() {
 
 	}
 
