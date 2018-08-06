@@ -13,7 +13,7 @@ public class StringUtils {
 
 	private static final String MINUS = "-";
 
-	static public boolean isEmpty(String value) {
+	public static boolean isEmpty(String value) {
 		if (value != null) {
 			if (value.isEmpty()) {
 				return true;
@@ -49,8 +49,7 @@ public class StringUtils {
 		return false;
 	}
 
-	public static String getStringOfRegulareExpressionPattern(String string, String pattern)
-			throws PatternSyntaxException, NullPointerException {
+	public static String getStringOfRegulareExpressionPattern(String string, String pattern) {
 		if (StringUtils.isEmpty(string) || StringUtils.isEmpty(pattern)) {
 			throw new IllegalArgumentException(" The pattern or the string to search is empty");
 		}
@@ -72,15 +71,14 @@ public class StringUtils {
 	}
 
 	public static String concatenate(String... value) {
-		String value1 = "";
+		StringBuilder value1 = new StringBuilder();
 		for (String string : value) {
-			value1 = value1 + value;
+			value1.append(string);
 		}
 		return value1.toString();
 	}
 
 	public static String convertValueToNullifnull(String firstValue) {
-		boolean result = false;
 		if (firstValue == null) {
 			firstValue = "null";
 		}
@@ -99,13 +97,7 @@ public class StringUtils {
 		return result;
 	}
 
-	private static String createFiller(int numberOfFiller, char typeOfFiller) {
-		final StringBuilder fillerString = new StringBuilder();
-		for (int i = 0; i < numberOfFiller; i++) {
-			fillerString.append(typeOfFiller);
-		}
-		return fillerString.toString();
-	}
+
 
 	public static String removeTrailingSpacesOrConvertToNull(String input, boolean convertToNull, boolean isPositive) {
 		if (input != null) {
