@@ -39,7 +39,7 @@ public enum GradeEnum {
 	 * @return the minMarks
 	 */
 	public final int getMinMarks() {
-		int minMarks = 0;
+		minMarks = 0;
 		return minMarks;
 	}
 
@@ -52,11 +52,11 @@ public enum GradeEnum {
 		return maxMarks;
 	}
 
-	public void setMinMarks(int minMarks) {
+	void setMinMarks(int minMarks) {
 		this.minMarks = minMarks;
 	}
 
-	public void setMaxMarks(int maxMarks) {
+	void setMaxMarks(int maxMarks) {
 		this.maxMarks = maxMarks;
 	}
 
